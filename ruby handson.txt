@@ -1,0 +1,191 @@
+def arithmetic1(n)
+  n * 5 - 20
+end
+result = arithmetic1(30)
+puts result
+-----------------------------------------------------------------------------
+def small(a,b)
+  if a > b
+   a/2.0
+ else
+   b/2.0
+ end
+end
+s1=small(2,1)
+s2=small(5,6)
+s3=small(10,11)
+s4=small(13,12)
+puts s1
+puts s2
+puts s3
+puts s4
+--------------------------------------------------------------------------
+def replace(string)
+  string.gsub('sad', 'happy').gsub('Sad', 'Happy')
+end
+v1 = replace("i am very sad")
+v2 = replace( "yesterday i was very sad and today i am very happy")
+puts v1
+puts v2
+------------------------------------------------------------------------------
+def odd_even(string, soln)
+ to_return =""
+string.size.times do |i|
+if soln == false
+ next if i.even?
+else 
+ next if i.odd?
+end
+ to_return << string[i]
+end
+to_return
+end
+s3 = odd_even("mathiprakash",true)
+s4 = odd_even("mathiprakash",false)
+puts s3
+puts s4
+----------------------------------------------------------------------------------
+def arithmetic 
+a = gets.chomp.to_i
+b = gets.chomp.to_i 
+puts "Sum: #{a + b}"
+puts "Difference: #{a - b}"
+puts "Product: #{a * b}"
+end
+arithmetic
+-----------------------------------------------------------------------------------
+def get_squares(numbers)
+  numbers.select { |n| numbers.include? n*n }.sort
+end
+result = get_squares([9, 3, 16, 4])
+puts result
+---------------------------------------------------------------------------------------
+def mod_three(numbers)
+  numbers.select { |number| number % 3 != 0 }.map { |number| number % 3 }
+end
+res = mod_three([3,4,6,7,9,10,12,5])
+puts res
+----------------------------------------------------------------------------------------
+def count_of_strings(str1, str2)
+  combined_string = str1 + str2
+  cs =combined_string.length
+if cs  %2  != 0  && cs % 3 != 0 
+puts "#{cs} it's prime number" 
+else 
+puts "#{cs} it,s natural number"
+end
+end
+
+
+result = count_of_strings("hello", "worldeee")
+puts result
+------------------------------------------------------------------------------------------
+def got_three?(elements)
+  elements.each_cons 3 do |a, b, c|
+    return true if a == b && b == c
+  end
+       false
+end
+
+n=got_three?([1,2,3])
+b=got_three?([1,1,1])
+s=got_three?([1,2,1,1])
+v=got_three?([1,2,3,3,3])
+
+puts n
+puts b
+puts s
+puts v
+-----------------------------------------------------------------------------------------------------
+def deaf_grandma
+  while line = gets
+line.chomp!
+    break if line == "BYE"
+    if line == line.upcase && line != ""
+      puts "NO, NOT SINCE 1938!"
+    else
+      puts "HUH?! SPEAK UP, SONNY!"
+    end
+  end
+end
+
+deaf_grandma if $0 == __FILE__
+-----------------------------------------------------------------------------------------------------
+class Person
+  attr_accessor 'name', 'age'
+
+  def initialize(name, age)
+    @name = name
+    @age  = age
+  end
+
+  def birthday
+    @age += 1
+  end
+end
+people = []
+people << Person.new("dhoni",39)
+people << Person.new("prakash",30)
+people << Person.new("mathi",29)
+
+puts "before birthday: "
+people.each do |person|
+puts "#{person.name}, #{person.age}"
+end
+
+puts "after birthday: "
+people.each do |person|
+person.birthday
+puts "#{person.name}, #{person.age}"
+end
+-----------------------------------------------------------------------------------------------------
+def staircase(n)
+  2.step(n,2)  do |crnt_size|
+     puts "#{crnt_size}"
+end
+end
+staircase(20)
+--------------------------------------------------------------------------------------------------------
+def word_count(str)
+  words = Hash.new { 0 }
+  str.split.each { |word| words[word.downcase] += 1 }
+  words
+end
+avr = word_count("This is a sample. This is  an another sample")
+puts "#{avr}"
+--------------------------------------------------------------------------------------------------------
+def first_pos(str)
+  to_return = {}
+  str.split.each_with_index do |word, index|
+    to_return[word] ||= index
+  end
+  to_return
+end
+avr = first_pos("The dog and the cat and the cow")
+puts "#{avr}"
+--------------------------------------------------------------------------------------------------------------
+class MyClass
+  def self.class_method
+    puts "Inside class method: #{self}"
+  end
+  def self.sub_method
+    puts "inside sub method: #{self}"
+end
+end
+
+MyClass.class_method
+MyClass.sub_method
+-------------------------------------------------------------------------------------------------------------
+class MyClass
+  def initialize(name)
+    @name = name
+  end
+
+  def introduce
+    puts "Hello, I am #{@name}."
+    puts "Inside introduce method: #{self}"
+  end
+end
+
+obj = MyClass.new("John")
+obj.introduce
