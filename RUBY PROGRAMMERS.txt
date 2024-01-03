@@ -1,0 +1,229 @@
+                          CASE 
+print "enter the city : "
+choice = gets.chomp
+case choice 
+    when "tvl"
+          puts "tirunelveli"
+    when "mdu"
+          puts "madurai"
+    else 
+          puts "unknown"
+  end
+ 
+                             IF
+
+print "enter the num : "
+number = gets.chomp.to_i
+if number % 4 == 0
+puts "divisible"
+else 
+puts "not divisible"
+end
+
+                            SUM 
+
+puts "enter two number: "
+a = gets.to_i
+b = gets.to_i
+c = a+b
+puts "sum of two numbers #{c}"
+
+
+                          WITH-ARGS 
+
+class Sd
+def msd=(args)
+ args
+end
+end
+sd=Sd.new
+puts sd.msd = " i am big fan of dhoni"
+
+                          WITH-ARGS 1
+class Df
+def initialize(args)
+puts args
+end
+end
+Df.new("I started learning ruby")
+
+                      WITH-ARGS 2
+class We 
+def walk
+puts " i am walking"
+end
+def talk
+puts "i am talking"
+end
+end
+we = We.new()
+we.walk
+we.talk
+
+                     WITH-ARGS 3
+class Fg
+attr_accessor :name, :age
+def initialize (name,age)
+@name = name
+@age = age
+end
+  def display_info
+    puts "Name: #{@name}, Age: #{@age}"
+  end
+def dog
+puts "bark"
+end
+end
+fg = Fg.new("mathi",30)
+fg.dog
+
+                    ACCESSOR
+class My
+attr_accessor :name,:age
+end
+my = My.new
+my.name = "mathi"
+my.age = 30
+puts " My name is #{my.name}" + "and age is #{my.age}"
+
+                  PALINDROME
+def is_palindrome?(str)
+  cleaned_str = str.downcase.gsub(/\W/, '') 
+  cleaned_str == cleaned_str.reverse
+end
+puts "enter the string"
+str = gets.chomp
+if is_palindrome?(str)
+  puts "It's a palindrome!"
+else
+  puts "It's not a palindrome."
+end
+
+                    FIBONACCI
+def fibonacci(n)
+  fibonacci_sequence = [3,4]
+(2..n).each do |i|
+    fibonacci_sequence << fibonacci_sequence[i - 1] + fibonacci_sequence[i - 2]
+  end
+fibonacci_sequence
+end
+puts "Enter the number "
+n = gets.chomp.to_i
+puts "#{fibonacci(n).join(',')}"
+
+                    FACTORIAL
+
+def factorial(n)
+  if n == 0 || n == 1
+     1
+  else
+    n * factorial(n - 1)
+  end
+end
+puts "Enter a number"
+n = gets.chomp.to_i
+puts "the value of factorial is #{factorial(n)}"
+
+                    without_reverse 
+
+def is_palindrome?(str)
+ str = str.downcase
+  start_index = 0
+  end_index = str.length - 1
+  
+ while start_index < end_index
+
+  while start_index < end_index && !str[start_index].match?(/[a-z0-9]/)
+     start_index += 1
+    end
+    
+   
+    while start_index < end_index && !str[end_index].match?(/[a-z0-9]/)
+    end_index -= 1
+    end
+    
+    return false if str[start_index] != str[end_index]
+   
+    start_index += 1
+    end_index -= 1
+  end
+     true
+end
+
+
+puts is_palindrome?("A man, a plan, a canal, Panama")  
+puts is_palindrome?("race a car")                      
+puts is_palindrome?("level")                            
+puts is_palindrome?("Was it a car or a cat I saw?")    
+
+                        Inheritance
+
+class Animal
+  attr_accessor :name
+
+  def initialize(name)
+    @name = name
+  end
+end
+
+class Dog < Animal
+  def speak
+    "Woof!"
+  end
+end
+
+class Cat < Animal
+  def speak
+    "Meow!"
+  end
+end
+
+# Create instances of the subclasses
+dog = Dog.new("Buddy")
+cat = Cat.new("Whiskers")
+
+# Call methods on the instances
+puts "#{dog.name} says #{dog.speak}"
+puts "#{cat.name} says #{cat.speak}"
+                   
+                      overloading
+class MyClass
+  def example(*args)
+    puts "Method with #{args.length} arguments: #{args.join(', ')}"
+  end
+end
+
+obj = MyClass.new
+obj.example("one")         
+obj.example("one", "two")   
+
+                      overriding
+
+class Animal
+  def speak
+    puts "Animal speaks"
+  end
+end
+
+class Dog < Animal
+  def speak
+    puts "Dog barks"
+  end
+end
+
+animal = Animal.new
+animal.speak  
+
+dog = Dog.new
+dog.speak  
+
+
+
+
+
+
+
+
+
+
+
