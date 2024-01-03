@@ -1,0 +1,88 @@
+module A
+  def common_method
+    puts "Method from module A"
+  end
+end
+
+module B
+  def common_method
+    puts "Method from module B"
+  end
+end
+
+module C
+  def common_method
+    puts "Method from module C"
+  end
+end
+
+class D
+  include A
+  include B
+  include C
+end
+
+d = D.new
+d.common_method 
+---------------------------------------------------------------------------------------
+module Printable
+  def print_info
+    puts "Printing information..."
+  end
+end
+
+class Book
+  include Printable
+end
+
+class Magazine
+  include Printable
+end
+
+
+book = Book.new
+book.print_info
+magazine = Magazine.new
+magazine.print_info
+-----------------------------------------------------------------------------------------
+module MathOperations
+  def self.add(x, y)
+    x + y
+  end
+end
+
+result = MathOperations.add(3, 5)
+puts result 
+-------------------------------------------------------------------------------------------
+module Logging
+  def log(message)
+    puts "Log: #{message}"
+  end
+end
+
+class MyClass
+  include Logging
+end
+
+obj = MyClass.new
+obj.log("This is a log message")
+------------------------------------------------------------------------------------------------
+module Validation
+  def validate_presence(value)
+    if value.nil? || value.empty?
+      puts "Value is not present."
+    else
+      puts "Value is present: #{value}"
+    end
+  end
+end
+
+class User
+  include Validation
+end
+
+user = User.new
+user.validate_presence("this is new value")
+user.validate_presence(nil)
+user.validate_presence("")
+---------------------------------------------------------------------------------------------------
