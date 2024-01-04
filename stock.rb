@@ -61,6 +61,7 @@ shop.add_product(product1)
 shop.add_product(product2)
 shop.add_product(product3)
 product1.update_price(900)
+product2.update_price(600)
 
 shop.view_stock
 
